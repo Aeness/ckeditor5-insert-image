@@ -2,6 +2,7 @@
 
 const path = require( 'path' );
 const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
+const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' );
 
 module.exports = {
     // https://webpack.js.org/configuration/entry-context/
@@ -53,6 +54,23 @@ module.exports = {
     },
 
     // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html#building-the-editor-using-a-specific-language
+    plugins: [
+        new CKEditorWebpackPlugin( {
+            // The main language that will be built into the main bundle in the JS code
+            language: 'fr',
+
+            //
+            // This option can be set to an array of language codes or `'all'` to build all found languages.
+            // Additional languages that will be emitted to the `outputDirectory` translations with .js extention.
+            // With [] (or omitted), the bundle is optimized for one language without translations directory.
+            additionalLanguages: ['en'],
+            verbose: true,
+
+            // CKEditorWebpackPlugin will search the needed transaltion in the pluging
+            packageNamesPattern: /([/\\]ckeditor5-[^/\\]+[/\\])|(^src)/,
+            sourceFileRegexp: /([/\\]ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$)|(^src)/
+        })
+    ],
 
     // Useful for debugging.
     devtool: 'source-map',

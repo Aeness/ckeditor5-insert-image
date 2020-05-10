@@ -8,11 +8,15 @@ import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 
+// For testing translation
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
     Essentials,
+    Bold,
 	Image,
 	ImageResize,
 	ImageStyle,
@@ -22,6 +26,9 @@ ClassicEditor.builtinPlugins = [
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
+	toolbar: {
+        items: [ 'bold' ]
+    },
 	image: {
 		toolbar: [
 			'imageStyle:alignLeft',
@@ -40,5 +47,5 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'fr'
 };

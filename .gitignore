@@ -106,3 +106,4 @@ dist
 # Generate dev tests files
 manual-tests/build/editor.js
 manual-tests/build/editor.js.map
+manual-tests/build/translations

@@ -6,6 +6,7 @@
     "@ckeditor/ckeditor5-core": "^19.0.0"
   },
   "devDependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^19.0.0",
     "@ckeditor/ckeditor5-dev-utils": "^13.0.1",
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^9.0.1",
     "@ckeditor/ckeditor5-editor-classic": "^19.0.0",
