@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CK5 Insert Image – development test</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+
+<div id="editor">
+    <p>Exemple</p>
+</div>
+
+<script src="../build/editor.js"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#editor' ) )
+    .then( editor => {
+        window.editor = editor;
+    } )
+    .catch( error => {
+        console.error( 'There was a problem initializing the editor.', error );
+        console.error( error.stack );
+    } );
+</script>
+</body>
+</html>

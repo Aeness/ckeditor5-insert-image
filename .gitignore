@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Generate dev tests files
+manual-tests/build/editor.js
+manual-tests/build/editor.js.map

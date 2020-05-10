@@ -1,0 +1,59 @@
+{
+  "name": "@aeness/ckeditor5-image",
+  "version": "19.0.0",
+  "description": "Image feature for CKEditor 5.",
+  "dependencies": {
+    "@ckeditor/ckeditor5-core": "^19.0.0"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-dev-utils": "^13.0.1",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^9.0.1",
+    "@ckeditor/ckeditor5-editor-classic": "^19.0.0",
+    "@ckeditor/ckeditor5-essentials": "^19.0.0",
+    "@ckeditor/ckeditor5-image": "^19.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^19.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "^19.0.0",
+    "postcss-loader": "^3.0.0",
+    "raw-loader": "^3.1.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.7.1"
+  },
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aeness/ckeditor5-image.git"
+  },
+  "files": [
+    "lang",
+    "src",
+    "theme"
+  ],
+  "scripts": {
+    "watch": "webpack --watch --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint --quiet '**/*.js'",
+    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --quiet"
+    ],
+    "**/*.css": [
+      "stylelint --quiet --allow-empty-input"
+    ]
+  },
+  "eslintIgnore": [
+    "src/lib/**",
+    "packages/**"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
