@@ -14,6 +14,8 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 // For testing balloon
 import Link from '@ckeditor/ckeditor5-link/src/link';
 
+import InsertImage from '../../src/insertimage';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -21,6 +23,7 @@ ClassicEditor.builtinPlugins = [
     Essentials,
     Bold,
 	Image,
+    InsertImage,
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
@@ -31,7 +34,7 @@ ClassicEditor.builtinPlugins = [
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
-        items: [ 'bold', '|', 'link' ]
+        items: [ 'bold', '|', 'link', '|', 'insertImage' ]
     },
 	image: {
 		toolbar: [

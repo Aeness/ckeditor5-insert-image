@@ -1,0 +1,12 @@
+.ck.ck-insert-image-form {
+    padding: var(--ck-spacing-standard); /* var(--ck-spacing-standard) */
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+[dir=ltr] .ck.ck-insert-image-form>:not(:first-child), [dir=rtl] .ck.ck-insert-image-form>:not(:last-child) {
+    margin-left: var(--ck-spacing-standard);
+}

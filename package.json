@@ -3,7 +3,11 @@
   "version": "19.0.0",
   "description": "Image feature for CKEditor 5.",
   "dependencies": {
-    "@ckeditor/ckeditor5-core": "^19.0.0"
+    "@ckeditor/ckeditor5-core": "^19.0.0",
+    "@ckeditor/ckeditor5-engine": "^19.0.0",
+    "@ckeditor/ckeditor5-image": "^19.0.0",
+    "@ckeditor/ckeditor5-ui": "^19.0.0",
+    "@ckeditor/ckeditor5-utils": "^19.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-basic-styles": "^19.0.0",
@@ -12,7 +16,6 @@
     "@ckeditor/ckeditor5-editor-classic": "^19.0.0",
     "@ckeditor/ckeditor5-essentials": "^19.0.0",
     "@ckeditor/ckeditor5-link": "^19.0.0",
-    "@ckeditor/ckeditor5-image": "^19.0.0",
     "@ckeditor/ckeditor5-paragraph": "^19.0.0",
     "@ckeditor/ckeditor5-theme-lark": "^19.0.0",
     "postcss-loader": "^3.0.0",
