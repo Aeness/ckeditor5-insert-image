@@ -11,6 +11,9 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 // For testing translation
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 
+// For testing balloon
+import Link from '@ckeditor/ckeditor5-link/src/link';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -21,13 +24,14 @@ ClassicEditor.builtinPlugins = [
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
+	Link,
     Paragraph
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
-        items: [ 'bold' ]
+        items: [ 'bold', '|', 'link' ]
     },
 	image: {
 		toolbar: [
