@@ -3,12 +3,17 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 
+import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/imageinsertcommand';
+
 import InsertImageForm from './insertimageform';
 
 export default class InsertImage extends Plugin {
     // Call before SubPlugin init
     constructor( editor ) {
         super( editor );
+
+        // Add the ImageInsertCommand to the editor
+        editor.commands.add( 'imageinsert', new ImageInsertCommand( editor ) );
     }
 
     static get requires() {

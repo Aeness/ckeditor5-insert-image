@@ -48,9 +48,13 @@ export default class InsertImageForm extends Plugin {
      * Do only once on the action form init.
      */
     _initUserInteractionsFromFormView() {
-        // Hide the panel after clicking the "Save" button.
+        // Excute the command and hide the panel after clicking the "Save" button.
         this.listenTo( this.formView, 'submit', () => {
-            this._hideUI();//_closeFormView();
+            editor.execute( 
+                'imageinsert', 
+                { source: this.formView.urlInputView.inputView.element.value }
+            );
+            this._hideUI();
         } );
 
         // Hide the panel after clicking the "Cancel" button.
@@ -115,6 +119,7 @@ export default class InsertImageForm extends Plugin {
         if ( this._isFormInBalloon ) {
             // Blur the input element before removing it from DOM to prevent issues in some browsers.
             // See https://github.com/ckeditor/ckeditor5/issues/1501.
+            // TODO : use this.formView._focusTracker instead ?
             this.formView.saveButtonView.focus();
 
             this._balloon.remove( this.formView );
