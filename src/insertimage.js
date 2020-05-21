@@ -16,6 +16,11 @@ export default class InsertImage extends Plugin {
         editor.commands.add( 'imageinsert', new ImageInsertCommand( editor ) );
     }
 
+    /**
+     * destroy() is calling after destroy on SubPlugin
+     * and call stopListening (backbone)
+     */
+
     static get requires() {
         return [ InsertImageForm ];
     }
