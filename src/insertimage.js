@@ -12,8 +12,11 @@ export default class InsertImage extends Plugin {
     constructor( editor ) {
         super( editor );
 
+        this._command = new ImageInsertCommand( editor );
+
         // Add the ImageInsertCommand to the editor
-        editor.commands.add( 'imageinsert', new ImageInsertCommand( editor ) );
+        // Is not the same name than Image Plugin (ImageInsert)
+        editor.commands.add( 'imageinsert', this._command );
     }
 
     /**
@@ -31,7 +34,8 @@ export default class InsertImage extends Plugin {
 
     // Call after SubPlugin init
     init() {
-        console.log('InsertImage init');
+        // TODO : make sure that ImageEditing.init() allow attributes 'src', 'srcset'
+        // and init conversion downcast and upcast
         const editor = this.editor;
         const t = editor.t;
 
@@ -51,6 +55,9 @@ export default class InsertImage extends Plugin {
 
             // Show the panel on button click.
             this.listenTo( button, 'execute', () => this._form.showUI( true ) );
+
+            // Active the button when images are allowed
+            button.bind( 'isEnabled' ).to( this._command, 'isEnabled' );
 
             return button;
         } );
