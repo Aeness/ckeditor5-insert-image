@@ -126,6 +126,11 @@ export default class InsertImageFormView extends View {
     }
 
     /**
+     * destroy() destroy this View and its children
+     * and call stopListening (backbone)
+     */
+
+    /**
      * Render the form and its children.
      */
     render() {

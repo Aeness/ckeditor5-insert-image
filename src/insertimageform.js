@@ -88,6 +88,18 @@ export default class InsertImageForm extends Plugin {
             callback: () => this._hideUI()
         } );
     }
+    
+    /**
+     * Calling after destroy on SubPlugin
+     */
+    destroy() {
+        // call stopListening (backbone)
+        super.destroy();
+
+        // Destroy created UI components as they are not automatically destroyed (see ckeditor5#1341).
+        // Destroy main View and its children
+        this.formView.destroy();
+    }
 
     /**
      * Add form view to the balloon context.
