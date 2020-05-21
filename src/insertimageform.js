@@ -6,7 +6,7 @@ import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsid
 
 import InsertImageFormView from './ui/insertimageformview';
 
-import { getSelectedImageWidget, isImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
+import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
 
 /**
  * Use the "main" stack of the ContextualBalloon with only one view (added and removed by this
