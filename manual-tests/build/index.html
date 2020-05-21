@@ -15,17 +15,45 @@
 <div id="editor">
     <p>Exemple en français.</p>
 </div>
-
+<div style="margin-top: 1em;">
+    <button id="open">Open</button>
+    <button id="close">Close</button>
+</div>
 <script src="../build/editor.js"></script>
 <script>
-    ClassicEditor.create( document.querySelector( '#editor' ) )
-    .then( editor => {
-        window.editor = editor;
-    } )
-    .catch( error => {
-        console.error( 'There was a problem initializing the editor.', error );
-        console.error( error.stack );
-    } );
+    create_editor();
+
+    function create_editor() {
+        ClassicEditor.create( document.querySelector( '#editor' ) )
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( 'There was a problem initializing the editor.', error );
+            console.error( error.stack );
+        } );
+    }
+
+    document.querySelector( '#open' ).onclick = function () {
+        if (!window.editor) {
+            create_editor();
+        }
+    }
+
+    document.querySelector( '#close' ).onclick = function () {
+        if (window.editor) {
+            window.editor.destroy()
+            .then(() => {
+                window.editor = null;
+            })
+            .catch(
+                error => {
+                    console.error( 'There was a problem destroying the editor.', error );
+                    console.error( error.stack );
+                }
+            )
+        }
+    }
 </script>
 </body>
 </html>
