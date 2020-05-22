@@ -2,8 +2,6 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver';
 import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon';
 
-import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
-
 import InsertImageFormView from './ui/insertimageformview';
 
 import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
@@ -19,7 +17,9 @@ export default class InsertImageForm extends Plugin {
      */
     constructor( editor ) {
         super( editor );
-        
+
+        this.set( 'isActiveView', false );
+
         this.formView = new InsertImageFormView( editor.locale );
     }
 
@@ -31,6 +31,10 @@ export default class InsertImageForm extends Plugin {
         return 'InsertImageForm';
     }
 
+    get viewElement() {
+        return this.formView.element;
+    }
+
     init() {
        const editor = this.editor;
 
@@ -39,8 +43,6 @@ export default class InsertImageForm extends Plugin {
         this._initUserInteractionsFromFormView();
 
         this._balloon = editor.plugins.get( ContextualBalloon );
-
-        this._initUserInteractionsFromEditor();
     }
 
     /**
@@ -50,45 +52,24 @@ export default class InsertImageForm extends Plugin {
     _initUserInteractionsFromFormView() {
         // Excute the command and hide the panel after clicking the "Save" button.
         this.listenTo( this.formView, 'submit', () => {
-            editor.execute( 
-                'imageinsert', 
+            editor.execute(
+                'imageinsert',
                 { source: this.formView.urlInputView.inputView.element.value }
             );
-            this._hideUI();
+            this.hideUI();
         } );
 
         // Hide the panel after clicking the "Cancel" button.
         this.listenTo( this.formView, 'cancel', () => {
-            this._hideUI();
+            this.hideUI();
         } );
 
         // Close the panel on esc key press when the **form has focus**.
         this.formView.keystrokes.set( 'Esc', ( data, cancel ) => {
-            this._hideUI();
+            this.hideUI();
         } );
     }
 
-    /**
-     * Init user interaction on form view and the balloon from outside.
-     * Do only once on the action form init.
-     */
-    _initUserInteractionsFromEditor() {
-        // Close the panel on the Esc key press when the editable has focus and the balloon is visible.
-        this.editor.keystrokes.set( 'Esc', ( data, cancel ) => {
-            if ( this._isFormVisible ) {
-                this._hideUI();
-            }
-        } );
-
-        // Close on click outside of balloon panel element.
-        clickOutsideHandler( {
-            emitter: this.formView,
-            activator: () => this._isFormInBalloon,
-            contextElements: [ this._balloon.view.element ],
-            callback: () => this._hideUI()
-        } );
-    }
-    
     /**
      * Calling after destroy on SubPlugin
      */
@@ -143,15 +124,16 @@ export default class InsertImageForm extends Plugin {
     }
 
     /**
-     * Call from outside when the balloon and the form view need to be show.
+     * Call when the balloon and the form view need to be show.
      * Check if the action can be done, and eventualy show the form.
      */
-    showUI() {
+    _showUI() {
         if ( !this._getSelectedImageWidgetElement() ) {
             // New start
             this.formView.resetValues();
 
             this._addFormView();
+            this.isActiveView = true;
         }
     }
 
@@ -159,7 +141,7 @@ export default class InsertImageForm extends Plugin {
      * Call when the balloon and the form view need to be hide.
      * Check if the action can be done, and eventualy hide the form.
      */
-    _hideUI() {
+    hideUI() {
         if ( !this._isFormInBalloon ) {
             return;
         }
@@ -167,10 +149,24 @@ export default class InsertImageForm extends Plugin {
         // Make sure the focus always gets back to the editable _before_ removing the focused form view.
         // Doing otherwise causes issues in some browsers.
         // See https://github.com/ckeditor/ckeditor5-link/issues/193.
+        // TODO : why we are doing this twice (with _removeFormView) ?
         this.editor.editing.view.focus();
 
         // Remove form because it's on top of the stack.
         this._removeFormView();
+
+        this.isActiveView = false;
+    }
+
+    /**
+     * Call from outside when the other only want to switch between show and hide.
+     */
+    swapUI() {
+        if ( this.isActiveView ) {
+            this.hideUI();
+        } else {
+            this._showUI();
+        }
     }
 
     /**
@@ -190,7 +186,7 @@ export default class InsertImageForm extends Plugin {
     }
 
     /**
-     * Returns the position for the balloon 
+     * Returns the position for the balloon
      * (when the selection is not an image)
      * Do not use getBalloonPositionData from image\ui\utils.
      */
@@ -204,7 +200,7 @@ export default class InsertImageForm extends Plugin {
     }
 
     /**
-     * Returns an image widget editing view element 
+     * Returns an image widget editing view element
      * if one is selected in the editor.
      */
     _getSelectedImageWidgetElement() {

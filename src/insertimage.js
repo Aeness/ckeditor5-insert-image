@@ -3,6 +3,8 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 
+import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
+
 import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/imageinsertcommand';
 
 import InsertImageForm from './insertimageform';
@@ -54,12 +56,47 @@ export default class InsertImage extends Plugin {
             } );
 
             // Show the panel on button click.
-            this.listenTo( button, 'execute', () => this._form.showUI( true ) );
+            // this listen to 'excute" on button (backbone)
+            this.listenTo( button, 'execute', () => this._form.swapUI() );
 
             // Active the button when images are allowed
             button.bind( 'isEnabled' ).to( this._command, 'isEnabled' );
 
+            // Init interaction when button.element and form.element exists
+            this.listenTo( button, 'render', () => {
+                this.listenTo( this._form.formView, 'render', () => {
+                    this._initUserInteractionsFromEditor(button);
+                });
+            });
+
             return button;
+        } );
+    }
+
+    /**
+     * Init user interaction on the form from outside of the form.
+     * Do only once on the init, this interactions are always
+     * enable, never disable.
+     */
+    _initUserInteractionsFromEditor(button) {
+        // Close the panel on the Esc key press when the editable has focus and the balloon is visible.
+        // TODO : stop interaction/listen when the form is not active ?
+        this.editor.keystrokes.set( 'Esc', ( data, cancel ) => {
+            if ( this.isActiveView ) {
+                this.hideUI();
+            }
+        } );
+
+        // Close on click outside of the form and the menu button.
+        // TODO : stop interaction/listen when the form is not active ?
+        // TODO : change the emitter
+        // TODO : replace clickOutsideHandler with a methode that has View parameter instead of View.element
+        // so you don't need to listenTo render before
+        clickOutsideHandler( {
+            emitter: this._form.formView, // Must be a view
+            activator: () => this._form.isActiveView,
+            contextElements: [ this._form.viewElement, button.element ],
+            callback: () => this._form.hideUI()
         } );
     }
 }
