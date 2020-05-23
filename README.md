@@ -148,4 +148,137 @@ You can see :
 - the official doc that show you how to [initialize CKEditor 5 rich-text editor from source](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/quick-start.html)
 - the official doc that show you how to [add a plugin to a editor from source](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/installing-plugins.html#adding-a-plugin-to-an-editor).
 
-**TODO**
+Create the project, run
+```
+npm init 
+```
+with default argument except for license : 'GPL-2.0-or-later'
+
+Prepare the build project.
+```
+npm install --save postcss-loader@3 raw-loader@3 style-loader@1 webpack@4 webpack-cli@3
+```
+
+Change package.json to have 
+```
+  "scripts": {
+    "build": "webpack --mode development"
+  },
+```
+
+Add the minimale configuration 
+```
+npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-classic @ckeditor/ckeditor5-essentials @ckeditor/ckeditor5-paragraph @ckeditor/ckeditor5-theme-lark
+```
+
+Install the plugin package 'ckeditor5-insert-image' :
+```
+npm install --save https://github.com/Aeness/ckeditor5-insert-image.git#beta
+```
+
+Add the file webpack.config.js
+```JavaScript
+'use strict';
+
+const path = require( 'path' );
+const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
+
+module.exports = {
+    // https://webpack.js.org/configuration/entry-context/
+    entry: './index.js',
+
+    // https://webpack.js.org/configuration/output/
+    output: {
+        path: path.resolve( __dirname, 'dist' ),
+        filename: 'bundle.js'
+    },
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+
+                use: [ 'raw-loader' ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            injectType: 'singletonStyleTag',
+                            attributes: {
+                                'data-cke': true
+                            }
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: styles.getPostCssConfig( {
+                            themeImporter: {
+                                themePath: require.resolve( '@ckeditor/ckeditor5-theme-lark' )
+                            },
+                            minify: true
+                        } )
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Useful for debugging.
+    devtool: 'source-map',
+
+    // By default webpack logs warnings if the bundle is bigger than 200kb.
+    performance: { hints: false }
+};
+```
+
+Add the file index.js
+```JavaScript
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+
+import Image from '@ckeditor/ckeditor5-image/src/image';
+import InsertImage from '@aeness/ckeditor5-insert-image/src/insertimage';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ Essentials, Paragraph, Image, InsertImage ],
+        toolbar: [ 'insertImage' ]
+    } )
+    .then( editor => {
+        console.log( 'Editor was initialized', editor );
+    } )
+    .catch( error => {
+        console.error( error.stack );
+    } );
+```
+
+Add the file sample/index.html
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CKEditor 5 Framework – Quick start with insert-image</title>
+    </head>
+    <body>
+        <div id="editor">
+            <p>Editor content goes here.</p>
+			<p>Try to add an image with an URL.</p>
+        </div>
+
+        <script src="../dist/bundle.js"></script>
+    </body>
+</html>
+```
+
+Build the new editor. 
+```
+npm run build
+```
+
+Open sample\index.html in a browser to see the result.
