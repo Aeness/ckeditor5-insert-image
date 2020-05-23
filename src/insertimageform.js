@@ -40,7 +40,7 @@ export default class InsertImageForm extends Plugin {
 
         editor.editing.view.addObserver( ClickObserver );
 
-        this._initUserInteractionsFromFormView();
+        this._initUserInteractionsFromFormView(editor);
 
         this._balloon = editor.plugins.get( ContextualBalloon );
     }
@@ -49,7 +49,7 @@ export default class InsertImageForm extends Plugin {
      * Init user interaction when form view is focused.
      * Do only once on the action form init.
      */
-    _initUserInteractionsFromFormView() {
+    _initUserInteractionsFromFormView(editor) {
         // Excute the command and hide the panel after clicking the "Save" button.
         this.listenTo( this.formView, 'submit', () => {
             editor.execute(
