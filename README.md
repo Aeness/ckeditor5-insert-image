@@ -1,6 +1,17 @@
 # Aeness / ckeditor5-insert-image
 This package implements a image feature for CKEditor 5. It allows for inserting images into the edited content.
 
+## Test it
+
+Run (or [download it](https://github.com/Aeness/ckeditor5-build/archive/master.zip) **and unzip**)
+```
+git clone https://github.com/Aeness/ckeditor5-build.git
+```
+
+ and open ckeditor5-build\sample\index.html in a browser.
+ 
+ Sorry the test is in French :).
+
 ##  CKEditor 5
 
 CKEditor 5 is an open source rich text editors : https://github.com/ckeditor/ckeditor5.
