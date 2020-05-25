@@ -15,6 +15,7 @@
     "@ckeditor/ckeditor5-link": "^19.0.0",
     "@ckeditor/ckeditor5-paragraph": "^19.0.0",
     "@ckeditor/ckeditor5-theme-lark": "^19.0.0",
+    "eslint": "^7.1.0",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^3.1.0",
     "style-loader": "^1.2.1",
@@ -40,13 +41,9 @@
   "scripts": {
     "watch": "webpack --watch --mode development",
     "build": "webpack --mode production",
-    "lint": "eslint --quiet '**/*.js'",
+    "lint": "eslint --quiet .",
     "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'"
   },
-  "eslintIgnore": [
-    "src/lib/**",
-    "packages/**"
-  ],
   "stylelint": {
     "extends": "stylelint-config-recommended",
     "rules": {
