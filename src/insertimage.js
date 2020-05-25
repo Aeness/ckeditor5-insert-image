@@ -81,7 +81,7 @@ export default class InsertImage extends Plugin {
     _initUserInteractionsFromEditor(button) {
         // Close the panel on the Esc key press when the editable has focus and the balloon is visible.
         // TODO : stop interaction/listen when the form is not active ?
-        this.editor.keystrokes.set( 'Esc', ( data, cancel ) => {
+        this.editor.keystrokes.set( 'Esc', ( /* data, cancel */ ) => {
             if ( this.isActiveView ) {
                 this.hideUI();
             }

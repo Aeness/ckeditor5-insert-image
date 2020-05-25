@@ -65,7 +65,7 @@ export default class InsertImageForm extends Plugin {
         } );
 
         // Close the panel on esc key press when the **form has focus**.
-        this.formView.keystrokes.set( 'Esc', ( data, cancel ) => {
+        this.formView.keystrokes.set( 'Esc', ( /* data, cancel */ ) => {
             this.hideUI();
         } );
     }

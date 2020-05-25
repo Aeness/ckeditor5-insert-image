@@ -148,7 +148,7 @@ export default class InsertImageFormView extends View {
         this.keystrokes.listenTo( this.element );
 
         // Cycling over focusable element
-        const cycler = new FocusCycler( {
+        new FocusCycler( {
             focusables : this._focusables, focusTracker: this._focusTracker,
             keystrokeHandler: this.keystrokes,
             actions: {
