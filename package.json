@@ -24,7 +24,7 @@
     "style-loader": "^1.2.1",
     "stylelint": "^13.8.0",
     "stylelint-config-recommended": "^3.0.0",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.11"
   },
   "engines": {
