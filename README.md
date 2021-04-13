@@ -1,5 +1,5 @@
 # Aeness / ckeditor5-insert-image
-This package implements a image feature for CKEditor 5. It allows for inserting images into the edited content.
+This package implements a image feature for CKEditor 5 V20.0.0. It allows for inserting images into the edited content.
 
 ## Test it
 
@@ -9,7 +9,7 @@ git clone https://github.com/Aeness/ckeditor5-build.git
 ```
 
  and open ckeditor5-build\sample\index.html in a browser.
- 
+
  Sorry the test is in French :).
 
 ##  CKEditor 5
@@ -24,7 +24,7 @@ It is available with :
 - [Classic editor](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor)
 
 CKEditor 5 does not allow to add plugins/features to CKEditor 5 build (https://github.com/ckeditor/ckeditor5/issues/667).
-You have to build your own editor with the plugin/feature ckeditor5-insert-image. 
+You have to build your own editor with the plugin/feature ckeditor5-insert-image.
 
 ### Complete example - Adding a plugin to a build - Customize (bundled) editor build
 
@@ -146,7 +146,7 @@ ClassicEditor.defaultConfig = {
 };
 ```
 
-Build the new editor. 
+Build the new editor.
 ```
 npm run build
 ```
@@ -161,7 +161,7 @@ You can see :
 
 Create the project, run
 ```
-npm init 
+npm init
 ```
 with default argument except for license : 'GPL-2.0-or-later'
 
@@ -170,14 +170,14 @@ Prepare the build project.
 npm install --save postcss-loader@3 raw-loader@3 style-loader@1 webpack@4 webpack-cli@3
 ```
 
-Change package.json to have 
+Change package.json to have
 ```
   "scripts": {
     "build": "webpack --mode development"
   },
 ```
 
-Add the minimale configuration 
+Add the minimale configuration
 ```
 npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-classic @ckeditor/ckeditor5-essentials @ckeditor/ckeditor5-paragraph @ckeditor/ckeditor5-theme-lark
 ```
@@ -287,7 +287,7 @@ Add the file sample/index.html
 </html>
 ```
 
-Build the new editor. 
+Build the new editor.
 ```
 npm run build
 ```

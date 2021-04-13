@@ -69,7 +69,7 @@ module.exports = {
 
             // CKEditorWebpackPlugin will search the needed transaltion in the pluging
             packageNamesPattern: /([/\\]ckeditor5-[^/\\]+[/\\])|(^src)/,
-            sourceFileRegexp: /([/\\]ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$)|(^src)/
+            sourceFileRegexp: /(ckeditor5-[^/\\]+[/\\].+\.js)|(^src)$/
         })
     ],
 
