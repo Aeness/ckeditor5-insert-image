@@ -14,6 +14,9 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 // For testing balloon
 import Link from '@ckeditor/ckeditor5-link/src/link';
 
+// For testing link on Image
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
+
 import InsertImage from '../../src/insertimage';
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -27,6 +30,7 @@ ClassicEditor.builtinPlugins = [
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
+    LinkImage,
 	Link,
     Paragraph
 ];
@@ -40,7 +44,9 @@ ClassicEditor.defaultConfig = {
 		toolbar: [
 			'imageStyle:alignLeft',
 			'imageStyle:full',
-			'imageStyle:alignRight'
+			'imageStyle:alignRight',
+            '|',
+            'linkImage'
 		],
 		styles: [
 			// This option is equal to a situation where no style is applied.
