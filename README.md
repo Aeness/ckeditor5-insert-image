@@ -1,5 +1,5 @@
 # Aeness / ckeditor5-insert-image
-This package implements a image feature for CKEditor 5 V23.0.0. It allows for inserting images into the edited content.
+This package implements a image feature for CKEditor 5 V23.1.0. It allows for inserting images into the edited content.
 
 ## Test it
 
