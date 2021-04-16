@@ -1,16 +1,20 @@
 # Aeness / ckeditor5-insert-image
-This package implements a image feature for CKEditor 5 V23.1.0. It allows for inserting images into the edited content.
+This package implements a image feature for CKEditor 5 V23.1.0. It allows the user to insert images with http/https url.
+
+Since the v22.0.0, CKEditor has its own feature "ImageInsert" for inserting image via URL.
+But the feature needs ImageUpload to work properly.
+
+Aeness / ckeditor5-insert-image doed not need ImageUpload.
 
 ## Test it
 
-Run (or [download it](https://github.com/Aeness/ckeditor5-build/archive/master.zip) **and unzip**)
+Run (or [Download it]https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v23.1.0.zip) **and unzip**)
 ```
-git clone https://github.com/Aeness/ckeditor5-build.git
+git clone --depth 1 --branch v23.1.0 https://github.com/Aeness/ckeditor5-build.git
 ```
 
- and open ckeditor5-build\sample\index.html in a browser.
+ and open ckeditor5-build\sample\index.html (french) or ckeditor5-build\sample\index_en.html in a browser.
 
- Sorry the test is in French :).
 
 ##  CKEditor 5
 
@@ -32,14 +36,14 @@ You can see the official doc [here](https://ckeditor.com/docs/ckeditor5/latest/b
 
 Clone and install the build repository
 ```
-git clone -b stable https://github.com/ckeditor/ckeditor5-build-classic.git
-cd ckeditor5-build-classic
+git clone -b v23.1.0 https://github.com/ckeditor/ckeditor5
+cd ckeditor5/packages/ckeditor5-build-classic
 npm install
 ```
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save-dev https://github.com/Aeness/ckeditor5-insert-image.git#beta
+npm install --save-dev https://github.com/Aeness/ckeditor5-insert-image.git#v23.1.0
 ```
 
 Edit the src/ckeditor.js file to replace ImageUpload by InsertImage.
@@ -179,12 +183,12 @@ Change package.json to have
 
 Add the minimale configuration
 ```
-npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-classic @ckeditor/ckeditor5-essentials @ckeditor/ckeditor5-paragraph @ckeditor/ckeditor5-theme-lark
+npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-classic@23.1.0 @ckeditor/ckeditor5-essentials@23.1.0 @ckeditor/ckeditor5-paragraph@23.1.0 @ckeditor/ckeditor5-theme-lark@23.1.0
 ```
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save https://github.com/Aeness/ckeditor5-insert-image.git#beta
+npm install --save https://github.com/Aeness/ckeditor5-insert-image.git#v23.1.0
 ```
 
 Add the file webpack.config.js
@@ -294,17 +298,20 @@ npm run build
 
 Open sample\index.html in a browser to see the result.
 
-### Common error
+## Common error
 
 After build the new editor the following error appears :
 ```
 Uncaught CKEditorError: ckeditor-duplicated-modules: Some CKEditor 5 modules are duplicated.
 ```
 
-Aeness/ckeditor5-insert-image does not confuse an editor build with an editor implementation.
-They is not conflicting version of dependencies.
+### Check the version
 
-It appends when npm create sub node_module in \node_module\@ckeditor\\* directories, when packages were duplicated in node_modules.
+Aeness/ckeditor5-insert-image, @ckeditor/ckeditor5-editor-classic, @ckeditor/ckeditor5-essentials, @ckeditor/ckeditor5-paragraph and @ckeditor/ckeditor5-theme-lark must have the same version.
+
+### Check sub node_module
+
+The error appends when npm create sub node_module in \node_module\@ckeditor\\* directories, when packages were duplicated in node_modules.
 
 https://ckeditor.com/docs/ckeditor5/latest/framework/guides/support/error-codes.html#error-ckeditor-duplicated-modules :
 > We recommend checking if any of the steps listed below help:
