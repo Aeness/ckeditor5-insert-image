@@ -2,7 +2,7 @@
     padding: var(--ck-spacing-standard); /* var(--ck-spacing-standard) */
 
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     flex-direction: row;
     flex-wrap: nowrap;
 }

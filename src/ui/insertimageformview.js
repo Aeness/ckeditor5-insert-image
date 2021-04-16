@@ -47,13 +47,13 @@ export default class InsertImageFormView extends View {
         /**
          * The URL input view.
          */
-        this.urlInputView = this._createUrlInput();
+        this.urlInputView = this._createUrlInput(t( 'Insert image via URL' ));
 
         /**
          * The Save button view.
          * Fired submit event when clicked.
          */
-        this.saveButtonView = this._createButton( t( 'Save' ), checkIcon, 'ck-button-save' );
+        this.saveButtonView = this._createButton( t( 'Insert' ), checkIcon, 'ck-button-save' );
         this.saveButtonView.type = 'submit';
 
         /**
@@ -76,14 +76,15 @@ export default class InsertImageFormView extends View {
     }
 
     /**
-     * Creates an input view (without label)
+     * Creates an input view (with label)
      * and add it to the children of the form,
      * and add it to the focusables and focusTracker.
      */
-    _createUrlInput() {
+    _createUrlInput(label) {
         const labeledInput = new LabeledInputView( this.locale, InputTextView );
 
         labeledInput.inputView.placeholder = 'https://example.com';
+        labeledInput.label = label;
 
         this._children.add( labeledInput );
         // TODO add label like plugin media (to be consistent ), or not to be consistent with link ??
