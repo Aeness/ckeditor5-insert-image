@@ -67,9 +67,11 @@ module.exports = {
             additionalLanguages: ['en'],
             verbose: true,
 
-            // CKEditorWebpackPlugin will search the needed transaltion in the pluging
+            // CKEditorWebpackPlugin will search the needed translation in the pluging
+            // Where the po can be found and where item to translate can be found
             packageNamesPattern: /([/\\]ckeditor5-[^/\\]+[/\\])|(^src)/,
-            sourceFileRegexp: /(ckeditor5-[^/\\]+[/\\].+\.js)|(^src)$/
+            // Where item to translate can be found
+            sourceFilesPattern: /(ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$)|(^src)/
         })
     ],
 
