@@ -34,8 +34,11 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aeness/ckeditor5-image.git"
+    "url": "git+https://github.com/Aeness/ckeditor5-insert-image.git"
   },
+  "keywords": [
+    "ckeditor5"
+  ],
   "files": [
     "lang",
     "src",
