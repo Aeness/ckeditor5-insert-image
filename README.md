@@ -1,5 +1,5 @@
 # Aeness / ckeditor5-insert-image
-This package implements a image feature for CKEditor 5 V23.1.0. It allows the user to insert images with http/https url.
+This package implements a image feature for CKEditor 5 V24.0.0. It allows the user to insert images with http/https url.
 
 Since the v22.0.0, CKEditor has its own feature "ImageInsert" for inserting image via URL.
 But the feature needs ImageUpload to work properly.
@@ -8,9 +8,9 @@ Aeness / ckeditor5-insert-image doed not need ImageUpload.
 
 ## Test it
 
-Run (or [Download it]https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v23.1.0.zip) **and unzip**)
+Run (or [Download it]https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v24.0.0.zip) **and unzip**)
 ```
-git clone --depth 1 --branch v23.1.0 https://github.com/Aeness/ckeditor5-build.git
+git clone --depth 1 --branch v24.0.0 https://github.com/Aeness/ckeditor5-build.git
 ```
 
  and open ckeditor5-build\sample\index.html (french) or ckeditor5-build\sample\index_en.html in a browser.
@@ -36,14 +36,14 @@ You can see the official doc [here](https://ckeditor.com/docs/ckeditor5/latest/b
 
 Clone and install the build repository
 ```
-git clone -b v23.1.0 https://github.com/ckeditor/ckeditor5
+git clone -b v24.0.0 https://github.com/ckeditor/ckeditor5
 cd ckeditor5/packages/ckeditor5-build-classic
 npm install
 ```
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save-dev https://github.com/Aeness/ckeditor5-insert-image.git#v23.1.0
+npm install --save-dev @aeness/ckeditor5-insert-image@24.0.0
 ```
 
 Edit the src/ckeditor.js file to replace ImageUpload by InsertImage.
@@ -183,12 +183,12 @@ Change package.json to have
 
 Add the minimale configuration
 ```
-npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-classic@23.1.0 @ckeditor/ckeditor5-essentials@23.1.0 @ckeditor/ckeditor5-paragraph@23.1.0 @ckeditor/ckeditor5-theme-lark@23.1.0
+npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-classic@24.0.0 @ckeditor/ckeditor5-essentials@24.0.0 @ckeditor/ckeditor5-paragraph@24.0.0 @ckeditor/ckeditor5-theme-lark@24.0.0
 ```
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save https://github.com/Aeness/ckeditor5-insert-image.git#v23.1.0
+npm install --save https://github.com/Aeness/ckeditor5-insert-image.git#v24.0.0
 ```
 
 Add the file webpack.config.js
