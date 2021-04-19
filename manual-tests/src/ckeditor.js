@@ -5,6 +5,7 @@ import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 
@@ -30,6 +31,7 @@ ClassicEditor.builtinPlugins = [
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
+    AutoImage,
     LinkImage,
 	Link,
     Paragraph

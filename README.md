@@ -4,7 +4,7 @@ This package implements a image feature for CKEditor 5 V24.0.0. It allows the us
 Since the v22.0.0, CKEditor has its own feature "ImageInsert" for inserting image via URL.
 But the feature needs ImageUpload to work properly.
 
-Aeness / ckeditor5-insert-image doed not need ImageUpload.
+Aeness / ckeditor5-insert-image doed not need ImageUpload and can works with AutoImage.
 
 ## Test it
 
