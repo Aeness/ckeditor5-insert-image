@@ -1,8 +1,8 @@
 import View from '@ckeditor/ckeditor5-ui/src/view';
 
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
-import LabeledInputView from '@ckeditor/ckeditor5-ui/src/labeledinput/labeledinputview';
-import InputTextView from '@ckeditor/ckeditor5-ui/src/inputtext/inputtextview';
+import LabeledFieldView from '@ckeditor/ckeditor5-ui/src/labeledfield/labeledfieldview';
+import { createLabeledInputText } from '@ckeditor/ckeditor5-ui/src/labeledfield/utils';
 
 import submitHandler from '@ckeditor/ckeditor5-ui/src/bindings/submithandler';
 import KeystrokeHandler from '@ckeditor/ckeditor5-utils/src/keystrokehandler';
@@ -76,18 +76,17 @@ export default class InsertImageFormView extends View {
     }
 
     /**
-     * Creates an input view (with label)
+     * Creates an input view with label, like Link plugin and ImageInsert plugin, to be consistent.
      * and add it to the children of the form,
      * and add it to the focusables and focusTracker.
      */
     _createUrlInput(label) {
-        const labeledInput = new LabeledInputView( this.locale, InputTextView );
+        const labeledInput = new LabeledFieldView( this.locale, /* InputTextView */createLabeledInputText);
 
-        labeledInput.inputView.placeholder = 'https://example.com';
+        labeledInput.fieldView.placeholder = 'https://example.com';
         labeledInput.label = label;
 
         this._children.add( labeledInput );
-        // TODO add label like plugin media (to be consistent ), or not to be consistent with link ??
         this._focusables.add( labeledInput );
         this._focusTracker.add( labeledInput.element );
 
@@ -149,7 +148,7 @@ export default class InsertImageFormView extends View {
         this.keystrokes.listenTo( this.element );
 
         // Cycling over focusable element
-        new FocusCycler( {
+        let focusCycler = new FocusCycler( {
             focusables : this._focusables, focusTracker: this._focusTracker,
             keystrokeHandler: this.keystrokes,
             actions: {
@@ -159,12 +158,13 @@ export default class InsertImageFormView extends View {
                 focusNext: 'tab'
             }
         } );
+        focusCycler.focusFirst();
     }
 
     /**
      * Put the right value in the form.
      */
     resetValues() {
-        this.urlInputView.inputView.element.value = '';
+        this.urlInputView.fieldView.element.value = '';
     }
 }

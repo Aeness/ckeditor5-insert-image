@@ -54,7 +54,7 @@ export default class InsertImageForm extends Plugin {
         this.listenTo( this.formView, 'submit', () => {
             editor.execute(
                 'imageinsert',
-                { source: this.formView.urlInputView.inputView.element.value }
+                { source: this.formView.urlInputView.fieldView.element.value }
             );
             this.hideUI();
         } );
@@ -100,7 +100,7 @@ export default class InsertImageForm extends Plugin {
         // Select input when form view is currently visible
         // (here if the current stack is main).
         if ( this._balloon.visibleView === this.formView ) {
-            this.formView.urlInputView.select(); // TODO or focus ?
+            this.formView.urlInputView.fieldView.select();
         }
         // What happen with two stacks ??
     }
