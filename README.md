@@ -8,7 +8,7 @@ Aeness / ckeditor5-insert-image doed not need ImageUpload.
 
 ## Test it
 
-Run (or [Download it]https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v24.0.0.zip) **and unzip**)
+Run (or [Download it](https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v24.0.0.zip) **and unzip**)
 ```
 git clone --depth 1 --branch v24.0.0 https://github.com/Aeness/ckeditor5-build.git
 ```
