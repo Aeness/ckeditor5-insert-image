@@ -10,3 +10,19 @@
 [dir=ltr] .ck.ck-insert-image-form>:not(:first-child), [dir=rtl] .ck.ck-insert-image-form>:not(:last-child) {
     margin-left: var(--ck-spacing-standard);
 }
+
+
+/*
+ * Classes used by the "fake visual selection" displayed in the content when the balloon is focused.
+ */
+.ck .ck-fake-insert-image-aeness-selection {
+	background: var(--ck-color-link-fake-selection);
+}
+
+/* A collapsed fake visual selection. */
+.ck .ck-fake-insert-image-aeness-selection_collapsed {
+	height: 100%;
+	border-right: 1px solid var(--ck-color-base-text);
+	margin-right: -1px;
+	outline: solid 1px hsla(0, 0%, 100%, .5);
+}

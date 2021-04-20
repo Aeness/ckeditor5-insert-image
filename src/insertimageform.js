@@ -5,6 +5,7 @@ import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextu
 import InsertImageFormView from './ui/insertimageformview';
 
 import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
+import { hideFakeVisualSelection } from './utils';
 
 /**
  * Use the "main" stack of the ContextualBalloon with only one view (added and removed by this
@@ -120,6 +121,8 @@ export default class InsertImageForm extends Plugin {
             // Because the form has an input which has focus, the focus must be brought back
             // to the editor. Otherwise, it would be lost.
             this.editor.editing.view.focus();
+
+			hideFakeVisualSelection(this.editor.model);
         }
     }
 

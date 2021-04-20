@@ -9,6 +9,8 @@ import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/imageinsertc
 
 import InsertImageForm from './insertimageform';
 
+import { createFakeVisualSelection, renderFakeVisualSelection } from './utils';
+
 export default class InsertImage extends Plugin {
     // Call before SubPlugin init
     constructor( editor ) {
@@ -57,7 +59,10 @@ export default class InsertImage extends Plugin {
 
             // Show the panel on button click.
             // this listen to 'excute" on button (backbone)
-            this.listenTo( button, 'execute', () => this._form.swapUI() );
+            this.listenTo( button, 'execute', () => {
+                createFakeVisualSelection(this.editor.model);
+                this._form.swapUI()
+            });
 
             // Active the button when images are allowed
             button.bind( 'isEnabled' ).to( this._command, 'isEnabled' );
@@ -68,6 +73,8 @@ export default class InsertImage extends Plugin {
                     this._initUserInteractionsFromEditor(button);
                 });
             });
+
+            renderFakeVisualSelection(editor)
 
             return button;
         } );
