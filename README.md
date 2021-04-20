@@ -188,7 +188,7 @@ npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-editor-clas
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save https://github.com/Aeness/ckeditor5-insert-image.git#v24.0.0
+npm install --save @aeness/ckeditor5-insert-image@24.0.0
 ```
 
 Add the file webpack.config.js
