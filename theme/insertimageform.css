@@ -1,5 +1,5 @@
 .ck.ck-insert-image-form {
-    padding: var(--ck-spacing-standard); /* var(--ck-spacing-standard) */
+    padding: var(--ck-spacing-large);
 
     display: flex;
     align-items: flex-end;
