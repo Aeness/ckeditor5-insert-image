@@ -7,16 +7,49 @@ export const VISUAL_SELECTION_MARKER_NAME = 'aeness-insert-image';
  */
 export function  createFakeVisualSelection(model) {
     model.change( writer => {
+        console.log("model.change")
         const range = model.document.selection.getFirstRange();
 
+        // Markers in empty elements (range.start.isAtEnd == true)
+        // can cause unexpected errors
+        // https://github.com/ckeditor/ckeditor5/issues/8092
+
         if ( model.markers.has( VISUAL_SELECTION_MARKER_NAME ) ) {
-            writer.updateMarker( VISUAL_SELECTION_MARKER_NAME, { range } );
+            // markers should not exist.
+            if ( range.start.isAtEnd ) {
+                console.log("updateMarker range.start.isAtEnd")
+                const startPosition = range.start.getLastMatchingPosition(
+                    ( { item } ) => !model.schema.isContent( item ),
+                    { boundaries: range }
+                );
+
+                writer.updateMarker( VISUAL_SELECTION_MARKER_NAME, {
+                    range: writer.createRange( startPosition, range.end )
+                } );
+            } else {
+                console.log("updateMarker other")
+                writer.updateMarker( VISUAL_SELECTION_MARKER_NAME, { range } );
+            }
         } else {
-            writer.addMarker( VISUAL_SELECTION_MARKER_NAME, {
-                usingOperation: false,
-                affectsData: false,
-                range
-            } );
+            if ( range.start.isAtEnd ) {
+                console.log("addMarker range.start.isAtEnd")
+                const startPosition = range.start.getLastMatchingPosition(
+                    ( { item } ) => !model.schema.isContent( item ),
+                    { boundaries: range }
+                );
+
+                writer.addMarker( VISUAL_SELECTION_MARKER_NAME, {
+                    usingOperation: false,
+                    affectsData: false,
+                    range: writer.createRange( startPosition, range.end )
+                } );
+            } else {
+                writer.addMarker( VISUAL_SELECTION_MARKER_NAME, {
+                    usingOperation: false,
+                    affectsData: false,
+                    range
+                } );
+            }
         }
     } );
 }
