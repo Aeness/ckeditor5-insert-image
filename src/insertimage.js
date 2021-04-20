@@ -5,7 +5,7 @@ import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 
 import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
 
-import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/imageinsertcommand';
+import InsertImageAenessCommand from './insertimagecommand';
 
 import InsertImageForm from './insertimageform';
 
@@ -16,10 +16,11 @@ export default class InsertImage extends Plugin {
     constructor( editor ) {
         super( editor );
 
-        this._command = new ImageInsertCommand( editor );
+        this._command = new InsertImageAenessCommand( editor );
 
         // Add the ImageInsertCommand to the editor
         // Is not the same name than Image Plugin (ImageInsert)
+        // ImageEditing use 'imageInsert' to save the command (it not the same but very close...)
         editor.commands.add( 'imageinsert', this._command );
     }
 
@@ -46,6 +47,7 @@ export default class InsertImage extends Plugin {
         this._form = editor.plugins.get( InsertImageForm );
 
         // Create CkEditor toolbar buttons.
+        // ImageInsertUI use 'imageInsert'
         editor.ui.componentFactory.add( 'insertImage', locale => {
             const button = new ButtonView( locale );
 
