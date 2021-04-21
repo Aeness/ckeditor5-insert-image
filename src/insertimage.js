@@ -16,11 +16,10 @@ export default class InsertImage extends Plugin {
     constructor( editor ) {
         super( editor );
 
+        // @aeness/InsertImage has its own commande
         this._command = new InsertImageAenessCommand( editor );
 
-        // Add the ImageInsertCommand to the editor
-        // Is not the same name than Image Plugin (ImageInsert)
-        // ImageEditing use 'imageInsert' to save the command (it not the same but very close...)
+        // ImageEditing uses 'imageInsert' to save the command (it not the same but very close...)
         editor.commands.add( 'imageinsert', this._command );
     }
 
@@ -34,6 +33,7 @@ export default class InsertImage extends Plugin {
     }
 
     static get pluginName() {
+        // ImageInsertUI uses 'ImageInsertUI' (it not the same but still close)
         return 'InsertImage';
     }
 
@@ -47,7 +47,7 @@ export default class InsertImage extends Plugin {
         this._form = editor.plugins.get( InsertImageForm );
 
         // Create CkEditor toolbar buttons.
-        // ImageInsertUI use 'imageInsert'
+        // TODO : ImageInsertUI use 'imageInsert' and 'imageInsert' => change the name
         editor.ui.componentFactory.add( 'insertImage', locale => {
             const button = new ButtonView( locale );
 

@@ -1,8 +1,8 @@
-import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/imageinsertcommand';
+import InsertImageCommand from '@ckeditor/ckeditor5-image/src/image/insertimagecommand';
 import { insertImage } from '@ckeditor/ckeditor5-image/src/image/utils';
 import toArray from '@ckeditor/ckeditor5-utils/src/toarray';
 
-export default class InsertImageAenessCommand extends ImageInsertCommand {
+export default class InsertImageAenessCommand extends InsertImageCommand {
 
 	/**
 	 * Executes the command.
