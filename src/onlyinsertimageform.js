@@ -2,7 +2,7 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver';
 import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon';
 
-import InsertImageFormView from './ui/insertimageformview';
+import OnlyInsertImageFormView from './ui/onlyinsertimageformview';
 
 import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
 import { hideFakeVisualSelection } from './utils';
@@ -21,7 +21,7 @@ export default class InsertImageForm extends Plugin {
 
         this.set( 'isActiveView', false );
 
-        this.formView = new InsertImageFormView( editor.locale );
+        this.formView = new OnlyInsertImageFormView( editor.locale );
     }
 
     static get requires() {

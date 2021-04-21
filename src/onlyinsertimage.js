@@ -5,19 +5,19 @@ import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 
 import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
 
-import InsertImageAenessCommand from './insertimagecommand';
+import OnlyInsertImageCommand from './onlyinsertimagecommand';
 
-import InsertImageForm from './insertimageform';
+import OnlyInsertImageForm from './onlyinsertimageform';
 
 import { createFakeVisualSelection, renderFakeVisualSelection } from './utils';
 
-export default class InsertImage extends Plugin {
+export default class OnlyInsertImage extends Plugin {
     // Call before SubPlugin init
     constructor( editor ) {
         super( editor );
 
         // @aeness/InsertImage has its own commande
-        this._command = new InsertImageAenessCommand( editor );
+        this._command = new OnlyInsertImageCommand( editor );
 
         // ImageEditing uses 'imageInsert' to save the command (it not the same but very close...)
         editor.commands.add( 'imageinsert', this._command );
@@ -29,12 +29,12 @@ export default class InsertImage extends Plugin {
      */
 
     static get requires() {
-        return [ InsertImageForm ];
+        return [ OnlyInsertImageForm ];
     }
 
     static get pluginName() {
-        // ImageInsertUI uses 'ImageInsertUI' (it not the same but still close)
-        return 'InsertImage';
+        // Official ImageInsert use 'ImageInsert'
+        return 'OnlyInsertImage';
     }
 
     // Call after SubPlugin init
@@ -44,11 +44,9 @@ export default class InsertImage extends Plugin {
         const editor = this.editor;
         const t = editor.t;
 
-        this._form = editor.plugins.get( InsertImageForm );
+        this._form = editor.plugins.get( OnlyInsertImageForm );
 
-        // Create CkEditor toolbar buttons.
-        // TODO : ImageInsertUI use 'imageInsert' and 'imageInsert' => change the name
-        editor.ui.componentFactory.add( 'insertImage', locale => {
+        const componentFactoryFunction = locale => {
             const button = new ButtonView( locale );
 
             button.set( {
@@ -79,7 +77,13 @@ export default class InsertImage extends Plugin {
             renderFakeVisualSelection(editor)
 
             return button;
-        } );
+        }
+
+        // Create CkEditor toolbar buttons
+        // ImageInsertUI, since V26.0.0, use insertImage.
+        // Keep 'insertImage' for backward compatibility.
+        editor.ui.componentFactory.add( 'insertImage', componentFactoryFunction );
+        editor.ui.componentFactory.add( 'onlyInsertImage', componentFactoryFunction );
     }
 
     /**

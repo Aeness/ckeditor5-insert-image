@@ -76,7 +76,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
 // Add InsertImage
-import InsertImage from '@aeness/ckeditor5-insert-image/src/insertimage';
+import OnlyInsertImage from '@aeness/ckeditor5-insert-image/src/onlyinsertimage';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -95,7 +95,7 @@ ClassicEditor.builtinPlugins = [
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
-	InsertImage, // replace ImageUpload
+	OnlyInsertImage, // replace ImageUpload
 	Indent,
 	Link,
 	List,
@@ -122,7 +122,7 @@ ClassicEditor.defaultConfig = {
 			'indent',
 			'outdent',
 			'|',
-			'insertImage', // Replace 'imageUpload',
+			'simpleInsertImage', // Replace 'imageUpload',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
@@ -257,12 +257,12 @@ import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 
 import Image from '@ckeditor/ckeditor5-image/src/image';
-import InsertImage from '@aeness/ckeditor5-insert-image/src/insertimage';
+import OnlyInsertImage from '@aeness/ckeditor5-insert-image/src/onlyinsertimage';
 
 ClassicEditor
     .create( document.querySelector( '#editor' ), {
-        plugins: [ Essentials, Paragraph, Image, InsertImage ],
-        toolbar: [ 'insertImage' ]
+        plugins: [ Essentials, Paragraph, Image, OnlyInsertImage ],
+        toolbar: [ 'onlyInsertImage' ]
     } )
     .then( editor => {
         console.log( 'Editor was initialized', editor );

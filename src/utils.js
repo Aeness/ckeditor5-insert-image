@@ -1,13 +1,12 @@
-export const VISUAL_SELECTION_MARKER_NAME = 'aeness-insert-image';
+export const VISUAL_SELECTION_MARKER_NAME = 'only-insert-image';
 
 /**
  * Create a fake visual selection when the contextual balloon is displayed.
  *
- * This adds a 'aeness-insert-image' marker into the document that is rendered as a highlight on selected text fragment.
+ * This adds a 'only-insert-image' marker into the document that is rendered as a highlight on selected text fragment.
  */
 export function  createFakeVisualSelection(model) {
     model.change( writer => {
-        console.log("model.change")
         const range = model.document.selection.getFirstRange();
 
         // Markers in empty elements (range.start.isAtEnd == true)
@@ -62,7 +61,7 @@ export function renderFakeVisualSelection(editor) {
     editor.conversion.for( 'editingDowncast' ).markerToHighlight( {
         model: VISUAL_SELECTION_MARKER_NAME,
         view: {
-            classes: [ 'ck-fake-insert-image-aeness-selection' ]
+            classes: [ 'ck-fake-only-insert-image-selection' ]
         }
     } );
 
@@ -71,7 +70,7 @@ export function renderFakeVisualSelection(editor) {
         model: VISUAL_SELECTION_MARKER_NAME,
         view: {
             name: 'span',
-            classes: [ 'ck-fake-insert-image-aeness-selection', 'ck-fake-insert-image-aeness-selection_collapsed' ]
+            classes: [ 'ck-fake-only-insert-image-selection', 'ck-fake-only-insert-image-selection_collapsed' ]
         }
     } );
 }

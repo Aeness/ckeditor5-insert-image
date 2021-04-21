@@ -18,7 +18,7 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 // For testing link on Image
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
 
-import InsertImage from '../../src/insertimage';
+import OnlyInsertImage from '../../src/onlyinsertimage';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -27,7 +27,7 @@ ClassicEditor.builtinPlugins = [
     Essentials,
     Bold,
 	Image,
-    InsertImage,
+    OnlyInsertImage,
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
@@ -40,7 +40,7 @@ ClassicEditor.builtinPlugins = [
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
-        items: [ 'bold', '|', 'link', '|', 'insertImage' ]
+        items: [ 'bold', '|', 'link', '|', 'onlyInsertImage' ]
     },
 	image: {
 		toolbar: [

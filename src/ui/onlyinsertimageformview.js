@@ -13,11 +13,11 @@ import FocusCycler from '@ckeditor/ckeditor5-ui/src/focuscycler';
 
 import checkIcon from '@ckeditor/ckeditor5-core/theme/icons/check.svg';
 import cancelIcon from '@ckeditor/ckeditor5-core/theme/icons/cancel.svg';
-import '../../theme/insertimageform.css';
+import '../../theme/onlyinsertimageform.css';
 
 // Event submit : Fired when the form view is submitted
 // Event cancel : Fired when the form view is canceled
-export default class InsertImageFormView extends View {
+export default class OnlyInsertImageFormView extends View {
 
     constructor( locale ) {
         super( locale );

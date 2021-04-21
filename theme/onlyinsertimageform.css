@@ -15,12 +15,12 @@
 /*
  * Classes used by the "fake visual selection" displayed in the content when the balloon is focused.
  */
-.ck .ck-fake-insert-image-aeness-selection {
+.ck .ck-fake-only-insert-image-selection {
 	background: var(--ck-color-link-fake-selection);
 }
 
 /* A collapsed fake visual selection. */
-.ck .ck-fake-insert-image-aeness-selection_collapsed {
+.ck .ck-fake-only-insert-image-selection_collapsed {
 	height: 100%;
 	border-right: 1px solid var(--ck-color-base-text);
 	margin-right: -1px;
