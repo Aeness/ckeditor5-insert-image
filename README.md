@@ -43,7 +43,7 @@ npm install
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save-dev @aeness/ckeditor5-insert-image@25.0.0
+npm install --save @aeness/ckeditor5-insert-image@25.0.0
 ```
 
 Edit the src/ckeditor.js file to replace ImageUpload by InsertImage.
@@ -64,7 +64,7 @@ import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
-// remove import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
@@ -74,8 +74,9 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
-// Add InsertImage
+// Add (Only)InsertImage
 import OnlyInsertImage from '@aeness/ckeditor5-insert-image/src/onlyinsertimage';
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -89,13 +90,15 @@ ClassicEditor.builtinPlugins = [
 	Italic,
 	BlockQuote,
 	CKFinder,
+	CloudServices,
 	EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
-	OnlyInsertImage, // replace ImageUpload
+	ImageUpload,
+    OnlyInsertImage, // Add OnlyInsertImage
 	Indent,
 	Link,
 	List,
@@ -119,10 +122,10 @@ ClassicEditor.defaultConfig = {
 			'bulletedList',
 			'numberedList',
 			'|',
-			'indent',
 			'outdent',
+			'indent',
 			'|',
-			'simpleInsertImage', // Replace 'imageUpload',
+			'onlyInsertImage', // Replace 'uploadImage',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
