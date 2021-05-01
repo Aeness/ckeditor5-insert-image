@@ -1,10 +1,10 @@
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver';
-import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon';
+import { Plugin } from 'ckeditor5/src/core';
+import { ClickObserver } from 'ckeditor5/src/engine';
+import { ContextualBalloon } from 'ckeditor5/src/ui';
 
 import OnlyInsertImageFormView from './ui/onlyinsertimageformview';
 
-import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
+import { getSelectedImageWidget } from '../node_modules/@ckeditor/ckeditor5-image/src/image/utils';
 import { hideFakeVisualSelection } from './utils';
 
 /**

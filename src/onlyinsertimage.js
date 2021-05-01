@@ -1,9 +1,10 @@
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+import { Plugin } from 'ckeditor5/src/core';
 
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
-import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
+import { ButtonView } from 'ckeditor5/src/ui';
 
-import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
+import { icons } from 'ckeditor5/src/core';
+
+import { clickOutsideHandler } from 'ckeditor5/src/ui';
 
 import OnlyInsertImageCommand from './onlyinsertimagecommand';
 
@@ -52,7 +53,7 @@ export default class OnlyInsertImage extends Plugin {
             button.set( {
                 // Translation in official image plugin
                 label: t ('Insert image'),
-                icon: imageIcon,
+                icon: icons.image,
                 tooltip: true,
                 isEnabled: true
             } );

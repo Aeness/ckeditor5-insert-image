@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CK5 Insert Image – dll test - english</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+		}
+	</style>
+    <script src="../ckeditor5-dll/ckeditor5-dll.js"></script>
+
+    <!-- DLL-compatible build of ckeditor5-editor-classic. -->
+    <script src="../../node_modules/@ckeditor/ckeditor5-editor-classic/build/editor-classic.js"></script>
+
+    <!-- DLL-compatible builds of editor features. -->
+    <script src="../../node_modules/@ckeditor/ckeditor5-basic-styles/build/basic-styles.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-essentials/build/essentials.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-heading/build/heading.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-image/build/image.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-indent/build/indent.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-link/build/link.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-list/build/list.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-media-embed/build/media-embed.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-table/build/table.js"></script>
+
+    <script src="../../build/@aeness/ckeditor5-insert-image.js"></script>
+
+</head>
+<body>
+
+<div id="editor">
+    <p>Example in english.</p>
+    Try to insert https://images.freeimages.com/images/large-previews/05e/on-the-road-6-1384796.jpg
+</div>
+<div style="margin-top: 1em;">
+    <button id="open">Open</button>
+    <button id="close">Close</button>
+</div>
+<script>
+
+    create_editor();
+
+    function create_editor() {
+        const config = {
+            plugins: [
+                CKEditor5.basicStyles.Bold,
+                CKEditor5.basicStyles.Italic,
+                CKEditor5.essentials.Essentials,
+                CKEditor5.heading.Heading,
+                CKEditor5.image.Image,
+                CKEditor5.image.ImageCaption,
+                CKEditor5.image.ImageStyle,
+                CKEditor5.image.ImageToolbar,
+                CKEditor5.image.ImageUpload,
+                CKEditor5["@aeness/ckeditor5InsertImage"].OnlyInsertImage,
+                CKEditor5.indent.Indent,
+                CKEditor5.link.Link,
+                CKEditor5.list.List,
+                CKEditor5.mediaEmbed.MediaEmbed,
+                CKEditor5.paragraph.Paragraph,
+                CKEditor5.table.Table,
+                CKEditor5.table.TableToolbar
+            ],
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'outdent',
+                    'indent',
+                    '|',
+                    'onlyInsertImage',
+                    'insertTable',
+                    'mediaEmbed',
+                    'undo',
+                    'redo'
+                ]
+            },
+            image: {
+                toolbar: [
+                    'imageStyle:full',
+                    'imageStyle:side',
+                    '|',
+                    'imageTextAlternative'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            }
+        };
+        CKEditor5.editorClassic.ClassicEditor
+            .create( document.querySelector( '#editor' ), config )
+            .then( editor => {
+                window.editor = editor;
+            } );
+    }
+
+    document.querySelector( '#open' ).onclick = function () {
+        if (!window.editor) {
+            create_editor();
+        }
+    }
+
+    document.querySelector( '#close' ).onclick = function () {
+        if (window.editor) {
+            window.editor.destroy()
+            .then(() => {
+                window.editor = null;
+            })
+            .catch(
+                error => {
+                    console.error( 'There was a problem destroying the editor.', error );
+                    console.error( error.stack );
+                }
+            )
+        }
+    }
+</script>
+</body>
+</html>

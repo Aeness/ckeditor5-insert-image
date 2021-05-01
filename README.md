@@ -1,12 +1,23 @@
 # Aeness / ckeditor5-insert-image
-This package implements a image feature for CKEditor 5 V26.0.0. It allows the user to insert images with http/https url.
+===================================
+
+This package implements a image feature for the open source rich text editors [CKEditor 5](https://github.com/ckeditor/ckeditor5) V26.0.0. It allows the user to insert images with http/https url.
 
 Since the v22.0.0, CKEditor has its own feature "ImageInsert" for inserting image via URL.
 But the feature needs ImageUpload to work properly.
 
 Aeness / ckeditor5-insert-image doed not need ImageUpload and can works with AutoImage.
 
-## Test it
+## Table of contents
+
+* [Test the plugin](#test-the-plugin)
+* [How use ckeditor5-insert-image](#how-use-ckeditor5-insert-image)
+   * [Complete example - Adding a plugin to an existing build (customization and rebuild)](#complete-example---adding-a-plugin-to-an-existing-build-(customization-and-rebuild))
+   * [Complete example - Adding a plugin to your own editor (from source)](#complete-example---Adding-a-plugin-to-your-own-editor-(from-source))
+   * [Complete example - Adding a plugin to an existing build with DLL](#complete-example---adding-a-plugin-to-an-existing-build-with-DLL)
+* [Common error](#common-error)
+
+## Test the plugin
 
 Run (or [Download it](https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v26.0.0.zip) **and unzip**)
 ```
@@ -16,21 +27,16 @@ git clone --depth 1 --branch v26.0.0 https://github.com/Aeness/ckeditor5-build.g
  and open ckeditor5-build\sample\index.html (french) or ckeditor5-build\sample\index_en.html in a browser.
 
 
-##  CKEditor 5
-
-CKEditor 5 is an open source rich text editors : https://github.com/ckeditor/ckeditor5.
-
-##  ckeditor5-insert-image
+##  How use ckeditor5-insert-image
 
 It is a feature for CKEditor 5, that allow the user to insert images with http/https url.
 
 It is available with :
 - [Classic editor](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor)
 
-CKEditor 5 does not allow to add plugins/features to CKEditor 5 build (https://github.com/ckeditor/ckeditor5/issues/667).
-You have to build your own editor with the plugin/feature ckeditor5-insert-image.
+### Complete example - Adding a plugin to an existing build (customization and rebuild)
 
-### Complete example - Adding a plugin to a build - Customize (bundled) editor build
+It also possible to customize and rebuild an editor with the plugin/feature ckeditor5-insert-image.
 
 You can see the official doc [here](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/installing-plugins.html#adding-a-plugin-to-a-build).
 
@@ -160,7 +166,9 @@ npm run build
 
 Open sample\index.html in a browser to see the result.
 
-### Complete exemple - Adding a plugin to an editor (from source)
+### Complete example - Adding a plugin to your own editor (from source)
+
+It also possible to build your own editor with the plugin/feature ckeditor5-insert-image.
 
 You can see :
 - the official doc that show you how to [initialize CKEditor 5 rich-text editor from source](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/quick-start.html)
@@ -300,6 +308,59 @@ npm run build
 ```
 
 Open sample\index.html in a browser to see the result.
+
+### Complete example - Adding a plugin to an existing build with DLL
+
+Since the v26.0.0, CKEditor 5 allow to add plugins/features to an editor build without having to rebuild (recompile) the build itself.
+
+You can see the official doc [here](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/dll-builds.html).
+
+Currently, CKEditor 5 does not come with a ready-to-use DLL build.
+However, you can find a (english) dll for @aeness/ckeditor5-insert-image in the build\@aeness directory.
+
+You you have to put this dll in your projet, and load-it like :
+```HTML
+<script src="../../build/@aeness/ckeditor5-insert-image.js"></script>
+```
+
+And to use the plugin you need
+```JavaScript
+ const config = {
+        plugins: [
+            CKEditor5.basicStyles.Bold,
+            CKEditor5.basicStyles.Italic,
+            CKEditor5.autoformat.Autoformat,
+            CKEditor5.blockQuote.BlockQuote,
+            CKEditor5.essentials.Essentials,
+            CKEditor5.heading.Heading,
+            CKEditor5.image.Image,
+            CKEditor5.image.ImageCaption,
+            CKEditor5.image.ImageStyle,
+            CKEditor5.image.ImageToolbar,
+            CKEditor5.image.ImageUpload,
+            CKEditor5["@aeness/ckeditor5InsertImage"].OnlyInsertImage,
+            // ...
+        ],
+        toolbar: {
+            items: [
+                'heading',
+                '|',
+                'bold',
+                'italic',
+                'link',
+                'bulletedList',
+                'numberedList',
+                '|',
+                'outdent',
+                'indent',
+                '|',
+                'onlyInsertImage',
+                // ....
+            ]
+        },
+        // ...
+    };
+```
 
 ## Common error
 

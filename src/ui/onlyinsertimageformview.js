@@ -1,18 +1,17 @@
-import View from '@ckeditor/ckeditor5-ui/src/view';
+import {
+	ButtonView,
+	FocusCycler,
+	LabeledFieldView,
+	View,
+	ViewCollection,
+	createLabeledInputText,
+	submitHandler
+} from 'ckeditor5/src/ui';
 
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
-import LabeledFieldView from '@ckeditor/ckeditor5-ui/src/labeledfield/labeledfieldview';
-import { createLabeledInputText } from '@ckeditor/ckeditor5-ui/src/labeledfield/utils';
+import { FocusTracker } from 'ckeditor5/src/utils'
+import { KeystrokeHandler }  from 'ckeditor5/src/utils'
 
-import submitHandler from '@ckeditor/ckeditor5-ui/src/bindings/submithandler';
-import KeystrokeHandler from '@ckeditor/ckeditor5-utils/src/keystrokehandler';
-
-import ViewCollection from '@ckeditor/ckeditor5-ui/src/viewcollection';
-import FocusTracker from '@ckeditor/ckeditor5-utils/src/focustracker';
-import FocusCycler from '@ckeditor/ckeditor5-ui/src/focuscycler';
-
-import checkIcon from '@ckeditor/ckeditor5-core/theme/icons/check.svg';
-import cancelIcon from '@ckeditor/ckeditor5-core/theme/icons/cancel.svg';
+import { icons } from 'ckeditor5/src/core';
 import '../../theme/onlyinsertimageform.css';
 
 // Event submit : Fired when the form view is submitted
@@ -53,14 +52,14 @@ export default class OnlyInsertImageFormView extends View {
          * The Save button view.
          * Fired submit event when clicked.
          */
-        this.saveButtonView = this._createButton( t( 'Insert' ), checkIcon, 'ck-button-save' );
+        this.saveButtonView = this._createButton( t( 'Insert' ), icons.check, 'ck-button-save' );
         this.saveButtonView.type = 'submit';
 
         /**
          * The Cancel button view.
          * Fired cancel event when clicked.
          */
-        this.cancelButtonView = this._createButton( t( 'Cancel' ), cancelIcon, 'ck-button-cancel', 'cancel' );
+        this.cancelButtonView = this._createButton( t( 'Cancel' ), icons.cancel, 'ck-button-cancel', 'cancel' );
 
         this.setTemplate( {
             tag: 'form',
