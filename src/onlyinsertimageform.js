@@ -4,7 +4,7 @@ import { ContextualBalloon } from 'ckeditor5/src/ui';
 
 import OnlyInsertImageFormView from './ui/onlyinsertimageformview';
 
-import { getSelectedImageWidget } from '../node_modules/@ckeditor/ckeditor5-image/src/image/utils';
+import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
 import { hideFakeVisualSelection } from './utils';
 
 /**

@@ -3,12 +3,12 @@
   "version": "25.0.0",
   "description": "Image feature for CKEditor 5.",
   "dependencies": {
-    "ckeditor5": "^26.0.0"
+    "ckeditor5": "^26.0.0",
+    "@ckeditor/ckeditor5-image": "^26.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^26.0.0",
     "@ckeditor/ckeditor5-engine": "^26.0.0",
-    "@ckeditor/ckeditor5-image": "^26.0.0",
     "@ckeditor/ckeditor5-ui": "^26.0.0",
     "@ckeditor/ckeditor5-utils": "^26.0.0",
     "@ckeditor/ckeditor5-basic-styles": "^26.0.0",
