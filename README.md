@@ -1,5 +1,5 @@
 # Aeness / ckeditor5-insert-image
-===================================
+
 
 This package implements a image feature for the open source rich text editors [CKEditor 5](https://github.com/ckeditor/ckeditor5) V26.0.0. It allows the user to insert images with http/https url.
 
@@ -14,7 +14,7 @@ Aeness / ckeditor5-insert-image doed not need ImageUpload and can works with Aut
 * [How use ckeditor5-insert-image](#how-use-ckeditor5-insert-image)
    * [Complete example - Adding a plugin to an existing build (customization and rebuild)](#complete-example---adding-a-plugin-to-an-existing-build-(customization-and-rebuild))
    * [Complete example - Adding a plugin to your own editor (from source)](#complete-example---Adding-a-plugin-to-your-own-editor-(from-source))
-   * [Complete example - Adding a plugin to an existing build with DLL](#complete-example---adding-a-plugin-to-an-existing-build-with-DLL)
+   * [Example - Adding a plugin to an existing build with DLL](#example---adding-a-plugin-to-an-existing-build-with-DLL)
 * [Common error](#common-error)
 
 ## Test the plugin
@@ -309,7 +309,7 @@ npm run build
 
 Open sample\index.html in a browser to see the result.
 
-### Complete example - Adding a plugin to an existing build with DLL
+### Example - Adding a plugin to an existing build with DLL
 
 Since the v26.0.0, CKEditor 5 allow to add plugins/features to an editor build without having to rebuild (recompile) the build itself.
 
