@@ -18,7 +18,7 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 // For testing link on Image
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
 
-import OnlyInsertImage from '../../src/onlyinsertimage';
+import OnlyInsertImage from '../../../src/onlyinsertimage';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 

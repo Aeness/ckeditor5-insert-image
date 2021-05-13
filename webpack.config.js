@@ -7,14 +7,14 @@ const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' 
 
 module.exports = {
     // https://webpack.js.org/configuration/entry-context/
-    entry: path.resolve( __dirname, 'manual-tests/src', 'ckeditor.js' ),
+    entry: path.resolve( __dirname, 'manual-tests/classic/src', 'ckeditor.js' ),
 
     // https://webpack.js.org/configuration/output/
     output: {
 		// The name under which the editor will be exported.
         library: 'ClassicEditor',
 
-        path: path.resolve( __dirname, 'manual-tests/build' ),
+        path: path.resolve( __dirname, 'manual-tests/classic/build' ),
         filename: 'editor.js',
 		libraryTarget: 'umd',
 		libraryExport: 'default'
