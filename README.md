@@ -49,7 +49,7 @@ npm install
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save @aeness/ckeditor5-insert-image@27.0.0
+npm install --save @aeness/ckeditor5-insert-image@27.0.1
 ```
 
 Edit the src/ckeditor.js file to replace ImageUpload by InsertImage.
@@ -199,7 +199,7 @@ npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-dev-webpack
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save @aeness/ckeditor5-insert-image@27.0.0
+npm install --save @aeness/ckeditor5-insert-image@27.0.1
 ```
 
 Add the file webpack.config.js
