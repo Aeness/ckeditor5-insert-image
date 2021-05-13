@@ -7,6 +7,8 @@
         "exportsType": "namespace",
         "providedExports": [
           "Clipboard",
+          "ClipboardPipeline",
+          "DragDrop",
           "PastePlainText"
         ]
       }
@@ -242,6 +244,7 @@
           "isArrowKeyCode",
           "getLocalizedArrowKeyCodeDirection",
           "isForwardArrowKeyCode",
+          "getLanguageDirection",
           "Locale",
           "Collection",
           "first",
