@@ -104,6 +104,6 @@ dist
 .tern-port
 
 # Generate dev tests files
-manual-tests/build/editor.js
-manual-tests/build/editor.js.map
-manual-tests/build/translations
+manual-tests/classic/build/editor.js
+manual-tests/classic/build/editor.js.map
+manual-tests/classic/build/translations
