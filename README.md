@@ -12,8 +12,8 @@ Aeness / ckeditor5-insert-image does not need ImageUpload and can work with Auto
 
 * [Test the plugin](#test-the-plugin)
 * [How use ckeditor5-insert-image](#how-use-ckeditor5-insert-image)
-   * [Complete example - Adding a plugin to an existing build (customization and rebuild)](#complete-example---adding-a-plugin-to-an-existing-build-(customization-and-rebuild))
-   * [Complete example - Adding a plugin to your own editor (from source)](#complete-example---Adding-a-plugin-to-your-own-editor-(from-source))
+   * [Complete example - Adding a plugin to an existing build (customization and rebuild)](#complete-example---adding-a-plugin-to-an-existing-build-customization-and-rebuild)
+   * [Complete example - Adding a plugin to your own editor (from source)](#complete-example---adding-a-plugin-to-your-own-editor-from-source)
    * [Example - Adding a plugin to an existing build with DLL](#example---adding-a-plugin-to-an-existing-build-with-DLL)
 * [Common error](#common-error)
 
