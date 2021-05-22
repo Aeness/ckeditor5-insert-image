@@ -1,7 +1,7 @@
 # dll
 
 ```
-git clone --depth 1 --branch v27.0.0 https://github.com/ckeditor/ckeditor5.git
+git clone --depth 1 --branch v27.1.0 https://github.com/ckeditor/ckeditor5.git
 cd ckeditor5
 ```
 
