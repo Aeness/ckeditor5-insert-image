@@ -8,6 +8,15 @@ But the feature needs ImageUpload to work properly.
 
 Aeness / ckeditor5-insert-image does not need ImageUpload and can work with AutoImage.
 
+![Example 1](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example1.jpg?raw=true)
+
+![Example 2](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example2.jpg?raw=true)
+
+![Example 3](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example3.jpg?raw=true)
+
+![Example 4](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example4.jpg?raw=true)
+
+
 ## Table of contents
 
 * [Test the plugin](#test-the-plugin)
