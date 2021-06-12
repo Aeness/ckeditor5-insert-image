@@ -53,11 +53,13 @@ export default class InsertImageForm extends Plugin {
     _initUserInteractionsFromFormView(editor) {
         // Excute the command and hide the panel after clicking the "Save" button.
         this.listenTo( this.formView, 'submit', () => {
-            editor.execute(
-                'imageinsert',
-                { source: this.formView.urlInputView.fieldView.element.value }
-            );
-            this.hideUI();
+            if ( 0 != this.formView.urlInputView.fieldView.element.value != null && this.formView.urlInputView.fieldView.element.value.trim().length ) {
+                editor.execute(
+                    'imageinsert',
+                    { source: this.formView.urlInputView.fieldView.element.value }
+                );
+                this.hideUI();
+            }
         } );
 
         // Hide the panel after clicking the "Cancel" button.
