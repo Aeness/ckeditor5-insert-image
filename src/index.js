@@ -1,5 +1,1 @@
-import OnlyInsertImage from './onlyinsertimage';
-
- export default {
-     OnlyInsertImage
- };
+export {default as OnlyInsertImage} from './onlyinsertimage';

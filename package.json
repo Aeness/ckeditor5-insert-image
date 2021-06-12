@@ -8,8 +8,8 @@
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^28.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^24.4.2",
-    "@ckeditor/ckeditor5-dev-webpack-plugin": "^24.4.2",
+    "@ckeditor/ckeditor5-dev-utils": "^25.2.2",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^25.2.2",
     "@ckeditor/ckeditor5-editor-classic": "^28.0.0",
     "@ckeditor/ckeditor5-engine": "^28.0.0",
     "@ckeditor/ckeditor5-essentials": "^28.0.0",
