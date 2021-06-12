@@ -81,9 +81,6 @@ export default class OnlyInsertImage extends Plugin {
         }
 
         // Create CkEditor toolbar buttons
-        // ImageInsertUI, since V26.0.0, use insertImage.
-        // Keep 'insertImage' for backward compatibility.
-        editor.ui.componentFactory.add( 'insertImage', componentFactoryFunction );
         editor.ui.componentFactory.add( 'onlyInsertImage', componentFactoryFunction );
     }
 
