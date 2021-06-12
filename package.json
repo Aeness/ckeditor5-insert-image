@@ -10,9 +10,12 @@
     "@ckeditor/ckeditor5-core": "^28.0.0",
     "@ckeditor/ckeditor5-dev-utils": "^25.2.2",
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^25.2.2",
+    "@ckeditor/ckeditor5-editor-balloon": "^28.0.0",
     "@ckeditor/ckeditor5-editor-classic": "^28.0.0",
+    "@ckeditor/ckeditor5-editor-inline": "^28.0.0",
     "@ckeditor/ckeditor5-engine": "^28.0.0",
     "@ckeditor/ckeditor5-essentials": "^28.0.0",
+    "@ckeditor/ckeditor5-image": "^28.0.0",
     "@ckeditor/ckeditor5-link": "^28.0.0",
     "@ckeditor/ckeditor5-paragraph": "^28.0.0",
     "@ckeditor/ckeditor5-remove-format": "^28.0.0",
@@ -49,6 +52,8 @@
   "scripts": {
     "watch": "webpack --watch --mode development",
     "build": "webpack --mode production",
+    "build-inline": "webpack --mode production --config=webpack-inline.config.js",
+    "build-balloon": "webpack --mode production --config=webpack-balloon.config.js",
     "dll:build": "webpack --config=webpack-dll.config.js",
     "lint": "eslint --quiet .",
     "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'"

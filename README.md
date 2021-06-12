@@ -1,7 +1,7 @@
 # Aeness / ckeditor5-insert-image
 
 
-This package implements a feature for inserting image for the open source rich text editors [CKEditor 5](https://github.com/ckeditor/ckeditor5) v27.1.0. It allows the user to insert images with http/https url.
+This package implements a feature for inserting image for the open source rich text editors [CKEditor 5](https://ckeditor.com/ckeditor-5/demo/) v27.1.0. It allows the user to insert images with http/https url.
 
 Since the v22.0.0, CKEditor has its own feature "ImageInsert" for inserting image via URL.
 But the feature needs that "ImageUpload" is activated to work properly.
