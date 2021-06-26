@@ -54,7 +54,8 @@ BalloonEditor.defaultConfig = {
 			'imageStyle:full',
 			'imageStyle:alignRight',
             '|',
-            'linkImage'
+            'linkImage',
+            '|', 'onlyInsertImage'
 		],
 		styles: [
 			// This option is equal to a situation where no style is applied.
