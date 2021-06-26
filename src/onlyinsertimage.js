@@ -67,22 +67,20 @@ export default class OnlyInsertImage extends Plugin {
 
             // Active the button when images are allowed
             button.bind( 'isEnabled' ).to( this._command, 'isEnabled' );
+            button.bind( 'isOn' ).to( this._command, 'isImageSelected' );
+            button.listenTo( this._command, 'change:isImageSelected', () => {
+                if (this._command.isImageSelected) {
+                    button.label = t( 'Update image URL' );
+                } else {
+                    button.label = t ('Insert image');
+                }
+            } );
 
             // Init interaction when button.element and form.element exists
             this.listenTo( button, 'render', () => {
                 this.listenTo( this._form.formView, 'render', () => {
                     this._initUserInteractionsFromEditor(button);
                 });
-
-                // TODO listen this._command.isImageSelected change
-                // when changes are applied to the model.
-                button.listenTo( this.editor.model.document, 'change', () => {
-                    if (this._command.isImageSelected) {
-                        button.label = t( 'Update image URL' );
-                    } else {
-                        button.label = t ('Insert image');
-                    }
-                } );
             });
 
             renderFakeVisualSelection(editor)

@@ -9,7 +9,7 @@ export default class OnlyInsertImageCommand extends Command {
 	 */
 	constructor( editor ) {
         super(editor);
-		this.set( 'Selected', false );
+		this.set( 'isImageSelected', false );
 
     }
 
