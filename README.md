@@ -1,7 +1,7 @@
 # Aeness / ckeditor5-insert-image
 
 
-This package implements a feature for inserting image for the open source rich text editors [CKEditor 5](https://ckeditor.com/ckeditor-5/demo/) v27.1.0. It allows the user to insert images with http/https url.
+This package implements a feature for inserting image for the open source rich text editors [CKEditor 5](https://ckeditor.com/ckeditor-5/demo/) v28.0.0. It allows the user to insert images with http/https url.
 
 Since the v22.0.0, CKEditor has its own feature "ImageInsert" for inserting image via URL.
 But the feature needs that "ImageUpload" is activated to work properly.
@@ -10,17 +10,17 @@ Aeness / ckeditor5-insert-image does not need "ImageUpload" and can work with Au
 
 With Aeness / ckeditor5-insert-image you can insert an image :
 
-![Example 1](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example1.jpg?raw=true)
+![Example 1](https://github.com/Aeness/ckeditor5-insert-image/blob/v28.0.0/docs/doc-example1.jpg?raw=true)
 
-![Example 2](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example2.jpg?raw=true)
+![Example 2](https://github.com/Aeness/ckeditor5-insert-image/blob/v28.0.0/docs/doc-example2.jpg?raw=true)
 
-![Example 3](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example3.jpg?raw=true)
+![Example 3](https://github.com/Aeness/ckeditor5-insert-image/blob/v28.0.0/docs/doc-example3.jpg?raw=true)
 
-![Example 4](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example4.jpg?raw=true)
+![Example 4](https://github.com/Aeness/ckeditor5-insert-image/blob/v28.0.0/docs/doc-example4.jpg?raw=true)
 
 You can also update the image URL :
 
-![Example 5](https://github.com/Aeness/ckeditor5-insert-image/blob/master/docs/doc-example5.jpg?raw=true)
+![Example 5](https://github.com/Aeness/ckeditor5-insert-image/blob/v28.0.0/docs/doc-example5.jpg?raw=true)
 
 ## Table of contents
 
@@ -33,9 +33,9 @@ You can also update the image URL :
 
 ## Test the plugin
 
-Run (or [Download it](https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v27.1.0.zip) **and unzip**)
+Run (or [Download it](https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v28.0.0.zip) **and unzip**)
 ```
-git clone --depth 1 --branch v27.1.0 https://github.com/Aeness/ckeditor5-build.git
+git clone --depth 1 --branch v28.0.0 https://github.com/Aeness/ckeditor5-build.git
 ```
 
  and open ckeditor5-build\sample\index.html (french) or ckeditor5-build\sample\index_en.html in a browser.
@@ -56,14 +56,14 @@ You can see the official doc [here](https://ckeditor.com/docs/ckeditor5/latest/b
 
 Clone and install the build repository
 ```
-git clone -b v27.1.0 https://github.com/ckeditor/ckeditor5
+git clone -b v28.0.0 https://github.com/ckeditor/ckeditor5
 cd ckeditor5/packages/ckeditor5-build-classic
 npm install
 ```
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save @aeness/ckeditor5-insert-image@27.0.1
+npm install --save @aeness/ckeditor5-insert-image@28.0.0
 ```
 
 Edit the src/ckeditor.js file to replace ImageUpload by InsertImage.
@@ -208,12 +208,12 @@ Change package.json to have
 
 Add the minimale configuration
 ```
-npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-dev-webpack-plugin @ckeditor/ckeditor5-editor-classic@27.1.0 @ckeditor/ckeditor5-essentials@27.1.0 @ckeditor/ckeditor5-paragraph@27.1.0 @ckeditor/ckeditor5-theme-lark@27.1.0
+npm install --save @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-dev-webpack-plugin @ckeditor/ckeditor5-editor-classic@28.0.0 @ckeditor/ckeditor5-essentials@28.0.0 @ckeditor/ckeditor5-paragraph@28.0.0 @ckeditor/ckeditor5-theme-lark@28.0.0
 ```
 
 Install the plugin package 'ckeditor5-insert-image' :
 ```
-npm install --save @aeness/ckeditor5-insert-image@27.1.0
+npm install --save @aeness/ckeditor5-insert-image@28.0.0
 ```
 
 Add the file webpack.config.js
