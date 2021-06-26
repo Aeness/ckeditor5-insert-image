@@ -161,9 +161,16 @@ export default class OnlyInsertImageFormView extends View {
     }
 
     /**
-     * Put the right value in the form.
+     * Put the right value in the form and the right label.
      */
-    resetValues() {
+    resetFormForInsert() {
         this.urlInputView.fieldView.element.value = '';
+        this.saveButtonView.label = this.locale.t( 'Insert' );
+    }
+
+    resetFormForUpdate(defaultValue) {
+        this.urlInputView.fieldView.element.value = defaultValue;
+        this.saveButtonView.label = this.locale.t( 'Update' );
+        this.urlInputView.label = this.locale.t( 'Update image URL' );
     }
 }

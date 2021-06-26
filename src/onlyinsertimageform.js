@@ -133,13 +133,18 @@ export default class InsertImageForm extends Plugin {
      * Check if the action can be done, and eventualy show the form.
      */
     _showUI() {
+
         if ( !this._getSelectedImageWidgetElement() ) {
             // New start
-            this.formView.resetValues();
-
-            this._addFormView();
-            this.isActiveView = true;
+            this.formView.resetFormForInsert();
+        } else {
+            // New start
+            const selectedElement = this.editor.model.document.selection.getSelectedElement();
+            this.formView.resetFormForUpdate(selectedElement.getAttribute( 'src' ));
         }
+
+        this._addFormView();
+        this.isActiveView = true;
     }
 
     /**
