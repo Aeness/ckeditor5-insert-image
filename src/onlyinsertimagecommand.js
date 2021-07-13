@@ -1,6 +1,5 @@
 import { Command } from 'ckeditor5/src/core';
-import { insertImage, isImageAllowed, isImage } from '@ckeditor/ckeditor5-image/src/image/utils';
-import toArray from '@ckeditor/ckeditor5-utils/src/toarray';
+import { logWarning } from 'ckeditor5/src/utils';
 
 export default class OnlyInsertImageCommand extends Command {
 
@@ -9,6 +8,9 @@ export default class OnlyInsertImageCommand extends Command {
 	 */
 	constructor( editor ) {
         super(editor);
+        if ( !editor.plugins.has( 'ImageUtils' ) ) {
+            logWarning( 'image-utils-plugin-required' );
+        }
 		this.set( 'isImageSelected', false );
 
     }
@@ -18,8 +20,9 @@ export default class OnlyInsertImageCommand extends Command {
 	 */
 	refresh() {
         const selectedElement = this.editor.model.document.selection.getSelectedElement();
-		this.isEnabled = isImageAllowed( this.editor.model ) || isImage( selectedElement );
-		this.isImageSelected = isImage( selectedElement );
+        const imageUtils = this.editor.plugins.get( 'ImageUtils' );
+		this.isEnabled = imageUtils.isImageAllowed( this.editor.model ) || imageUtils.isImage( selectedElement );
+		this.isImageSelected = imageUtils.isImage( selectedElement );
 	}
 
 	/**
@@ -27,29 +30,34 @@ export default class OnlyInsertImageCommand extends Command {
 	 *
 	 * @fires execute
 	 * @param {Object} options Options for the executed command.
-	 * @param {String|Array.<String>} options.source The image source or an array of image sources to insert.
+	 * @param {String|Array.<String>} options.source The image source to insert.
 	 */
 	execute( options ) {
 		const model = this.editor.model;
         const selectedElement = model.document.selection.getSelectedElement();
+        const imageUtils = this.editor.plugins.get( 'ImageUtils' );
+
         this.editor.editing.view.focus();
-		for ( const src of toArray( options.source ) ) {
-            if ( this.isEnabled ) {
-                if ( isImage( selectedElement ) ) {
-                    updateImage( model, src, selectedElement )
-                } else {
-                    insertImage( model, { src }, model.document.selection);
-                }
+
+        // OnlyInsertImageCommand can't have an array of images...
+        const src = options.source;
+        if ( this.isEnabled ) {
+            if ( imageUtils.isImage( selectedElement ) ) {
+                this.updateImage( src, selectedElement )
+            } else {
+                const selectionAttributes = Object.fromEntries( model.document.selection.getAttributes() );
+                imageUtils.insertImage( { src, ...selectionAttributes }, model.document.selection);
             }
-		}
-	}
+        }
+    }
+
+    updateImage( url, selectedElement ) {
+        this.editor.model.change( writer => {
+            writer.setAttribute( 'src', url, selectedElement );
+            writer.removeAttribute( 'srcset', selectedElement );
+            writer.removeAttribute( 'sizes', selectedElement );
+        } );
+    }
+
 }
 
-
-function updateImage( model, url, selectedElement ) {
-	model.change( writer => {
-        writer.setAttribute( 'src', url, selectedElement );
-        writer.removeAttribute( 'srcset', selectedElement );
-        writer.removeAttribute( 'sizes', selectedElement );
-	} );
-}

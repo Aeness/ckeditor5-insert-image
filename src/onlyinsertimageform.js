@@ -4,7 +4,6 @@ import { ContextualBalloon } from 'ckeditor5/src/ui';
 
 import OnlyInsertImageFormView from './ui/onlyinsertimageformview';
 
-import { getSelectedImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
 import { hideFakeVisualSelection } from './utils';
 
 /**
@@ -134,7 +133,7 @@ export default class InsertImageForm extends Plugin {
      */
     _showUI() {
 
-        if ( !this._getSelectedImageWidgetElement() ) {
+        if ( !this.editor.plugins.get( 'ImageUtils' ).isImage(this.editor.model.document.selection.getSelectedElement()) ) {
             // New start
             this.formView.resetFormForInsert();
         } else {
@@ -207,15 +206,5 @@ export default class InsertImageForm extends Plugin {
         const target = view.domConverter.viewRangeToDom( viewDocument.selection.getFirstRange() );
 
         return { target };
-    }
-
-    /**
-     * Returns an image widget editing view element
-     * if one is selected in the editor.
-     */
-    _getSelectedImageWidgetElement() {
-        return getSelectedImageWidget(
-            this.editor.editing.view.document.selection
-        );
     }
 }

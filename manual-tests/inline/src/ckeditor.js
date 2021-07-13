@@ -44,8 +44,10 @@ ClassicEditor.defaultConfig = {
     },
 	image: {
 		toolbar: [
+            'imageStyle:inline',
+            '|',
 			'imageStyle:alignLeft',
-			'imageStyle:full',
+			'imageStyle:block',
 			'imageStyle:alignRight',
             '|',
             'linkImage'

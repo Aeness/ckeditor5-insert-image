@@ -275,8 +275,7 @@
           "setLabel",
           "getLabel",
           "toWidgetEditable",
-          "findOptimalInsertionPosition",
-          "checkSelectionOnObject",
+          "findOptimalInsertionRange",
           "viewToModelPositionOutsideModelElement",
           "centeredBalloonPositionForLongWidgets"
         ]
