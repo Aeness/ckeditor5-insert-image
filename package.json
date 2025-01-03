@@ -1,6 +1,6 @@
 {
   "name": "@aeness/ckeditor5-insert-image",
-  "version": "29.0.0",
+  "version": "29.0.1",
   "description": "Image feature for CKEditor 5.",
   "dependencies": {
     "@ckeditor/ckeditor5-image": "^29.0.0",
