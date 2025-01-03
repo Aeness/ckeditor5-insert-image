@@ -10,17 +10,17 @@ Aeness / ckeditor5-insert-image does not need "ImageUpload" and can work with Au
 
 With Aeness / ckeditor5-insert-image you can insert an image :
 
-![Example 1](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.0/docs/doc-example1.jpg?raw=true)
+![Example 1](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.1/docs/doc-example1.jpg?raw=true)
 
-![Example 2](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.0/docs/doc-example2.jpg?raw=true)
+![Example 2](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.1/docs/doc-example2.jpg?raw=true)
 
-![Example 3](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.0/docs/doc-example3.jpg?raw=true)
+![Example 3](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.1/docs/doc-example3.jpg?raw=true)
 
-![Example 4](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.0/docs/doc-example4.jpg?raw=true)
+![Example 4](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.1/docs/doc-example4.jpg?raw=true)
 
 You can also update the image URL :
 
-![Example 5](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.0/docs/doc-example5.jpg?raw=true)
+![Example 5](https://github.com/Aeness/ckeditor5-insert-image/blob/v29.0.1/docs/doc-example5.jpg?raw=true)
 
 ## Table of contents
 
@@ -33,9 +33,9 @@ You can also update the image URL :
 
 ## Test the plugin
 
-Run (or [Download it](https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v29.0.0.zip) **and unzip**)
+Run (or [Download it](https://github.com/Aeness/ckeditor5-build/archive/refs/tags/v29.0.1.zip) **and unzip**)
 ```
-git clone --depth 1 --branch v29.0.0 https://github.com/Aeness/ckeditor5-build.git
+git clone --depth 1 --branch v29.0.1 https://github.com/Aeness/ckeditor5-build.git
 ```
 
  and open ckeditor5-build\sample\index.html (french) or ckeditor5-build\sample\index_en.html in a browser.
