@@ -15,6 +15,7 @@
     "@ckeditor/ckeditor5-editor-inline": "^29.0.0",
     "@ckeditor/ckeditor5-engine": "^29.0.0",
     "@ckeditor/ckeditor5-essentials": "^29.0.0",
+    "@ckeditor/ckeditor5-basic-styles": "^29.0.0",
     "@ckeditor/ckeditor5-image": "^29.0.0",
     "@ckeditor/ckeditor5-link": "^29.0.0",
     "@ckeditor/ckeditor5-paragraph": "^29.0.0",
